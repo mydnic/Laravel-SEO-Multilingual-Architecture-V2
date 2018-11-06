@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Post;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -23,9 +24,13 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
+
+        $locale = request()->segment(1);
+
+        Route::bind('post', function ($slug) use ($locale) {
+            return Post::where('slug->' . $locale, $slug)->first() ?? abort(404);
+        });
     }
 
     /**

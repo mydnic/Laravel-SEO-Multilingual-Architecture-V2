@@ -13,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Set the app locale according to the URL
+        app()->setLocale(request()->segment(1));
     }
 
     /**

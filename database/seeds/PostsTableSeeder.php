@@ -14,15 +14,18 @@ class PostsTableSeeder extends Seeder
     {
         app()->setLocale('en');
 
-        $post = new Post;
-        $post->title = 'Awesome Translated Post!';
-        $post->content = 'Hello World! It works!!';
-        $post->save();
+        $post = Post::create([
+            'title' => 'Awesome Translated Post!',
+            'content' => 'Hello World! It works!!',
+        ]);
 
         app()->setLocale('fr');
+        // dd($post);
+        // $post->slug = null;
 
-        $post->title = 'Super Article traduit en français!';
-        $post->content = 'Bonjour le monde! Ca fonctionne bien !!';
-        $post->save();
+        $post->update([
+            'title' => 'Super Article traduit en français!',
+            'content' => 'Bonjour le monde! Ca fonctionne bien !!',
+        ]);
     }
 }
