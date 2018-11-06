@@ -7,7 +7,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <a href="{{ route('post.show', $post) }}">{{ $post->title }}</a>
+                        {{ $post->title }}
                     </div>
 
                     <div class="card-body">

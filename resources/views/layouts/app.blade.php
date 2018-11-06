@@ -33,7 +33,21 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="languagesDropdown" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                                {{ config('app.locales')[app()->getLocale()] }} <span class="caret"></span>
+                            </a>
 
+                            <div class="dropdown-menu " aria-labelledby="languagesDropdown">
+                                @foreach (config('app.locales') as $localeKey => $locale)
+                                    @if ($localeKey != app()->getLocale())
+                                        <a class="dropdown-item" href="{{ route('locale.switch', $localeKey) }}">
+                                            {{ $locale }}
+                                        </a>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
