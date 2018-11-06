@@ -12,20 +12,18 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
+        $post = new Post;
+
         app()->setLocale('en');
 
-        $post = Post::create([
-            'title' => 'Awesome Translated Post!',
-            'content' => 'Hello World! It works!!',
-        ]);
+        $post->title = 'Awesome Translated Post!';
+        $post->content = 'Hello World! It works!!';
+        $post->save();
 
         app()->setLocale('fr');
-        // dd($post);
-        // $post->slug = null;
 
-        $post->update([
-            'title' => 'Super Article traduit en français!',
-            'content' => 'Bonjour le monde! Ca fonctionne bien !!',
-        ]);
+        $post->title = 'Super Article traduit en français!';
+        $post->content = 'Bonjour le monde! Ca fonctionne bien !!';
+        $post->save();
     }
 }
