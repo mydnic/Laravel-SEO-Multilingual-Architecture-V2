@@ -29,7 +29,18 @@ class RouteServiceProvider extends ServiceProvider
         $locale = request()->segment(1);
 
         Route::bind('post', function ($slug) use ($locale) {
-            return Post::where('slug->' . $locale, $slug)->first() ?? abort(404);
+            $post = Post::where('slug->' . $locale, $slug)->first();
+            if ($post) {
+                return $post;
+            } else {
+                foreach (config('app.locales') as $locale => $label) {
+                    $postInLocale = Post::where('slug->' . $locale, $slug)->first();
+                    if ($postInLocale) {
+                        return redirect()->route('post.show', $postInLocale->slug)->send();
+                    }
+                }
+                abort(404);
+            }
         });
     }
 

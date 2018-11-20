@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Lang;
 
 class LocaleController extends Controller
 {
-    public function switch(Request $request, $locale)
+    public function switch($locale)
     {
         $previousRequest = $this->getPreviousRequest();
 
@@ -19,12 +19,13 @@ class LocaleController extends Controller
 
         // Check if the first segment matches a language code
         if (array_key_exists($locale, config('app.locales'))) {
-            $this->handleTranslatedRouteSegments($previousRequest, $queryBag, $locale);
-
             // Replace the first segment by the new language code
             $segments[0] = $locale;
+
+            $newRoute = $this->translateRouteSegments($segments, $locale);
+
             // Redirect to the required URL
-            $redirectUrl = implode('/', $segments);
+            $redirectUrl = implode('/', $newRoute->toArray());
             $redirectUrl .= count($queryBag) ? '?' . http_build_query($queryBag) : '';
             return redirect()->to($redirectUrl);
         }
@@ -38,36 +39,18 @@ class LocaleController extends Controller
         return request()->create(url()->previous());
     }
 
-    private function handleTranslatedRouteSegments(Request $request, array $queryBag, string $locale)
+    private function translateRouteSegments($segments, string $locale)
     {
-        // Gat the route name from the previous page
-        $routeName = app('router')->getRoutes()->match($request)->getName();
+        $translatedSegments = collect();
 
-        $segments = collect($request->segments())->map(function ($segment) use ($locale) {
-            return trans($segment, [], $locale);
-        });
-        dd($segments);
         foreach ($segments as $segment) {
-            if (Lang::has('routes.' . $segment, $locale)) {
-                dd($segment);
-                $translatedSegment = trans('routes.' . $routeName, [], $locale);
+            if ($key = array_search($segment, Lang::get('routes'))) {
+                $translatedSegments->push(trans('routes.' . $key, [], $locale));
+            } else {
+                $translatedSegments->push($segment);
             }
         }
 
-        if ($routeName) {
-            // The previous URL has a route name
-            $redirectUrl = $locale . '/' . trans('routes.' . $routeName, [], $locale);
-            $redirectUrl .= count($queryBag) ? '?' . http_build_query($queryBag) : '';
-        }
-
-        if ($routeName && Lang::has('routes.' . $routeName, $locale)) {
-            // Translate the route name to get the correct URI in the required language, and redirect to that URL.
-            $redirectUrl = $locale . '/' . trans('routes.' . $routeName, [], $locale);
-            $redirectUrl .= count($queryBag) ? '?' . http_build_query($queryBag) : '';
-
-            return $redirectUrl;
-        }
-
-        return false;
+        return $translatedSegments;
     }
 }

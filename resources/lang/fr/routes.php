@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'postkey' => 'article'
+    'post' => 'article',
+    'about' => 'a-propos',
 ];

@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'postkey' => 'post'
+    'post' => 'post',
+    'about' => 'about',
 ];
