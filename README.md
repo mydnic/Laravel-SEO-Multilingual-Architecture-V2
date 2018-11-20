@@ -4,5 +4,5 @@
 - [x] Having the ability to add as many language as you want through config file
 - [x] Translate the blog post's slugs
 - [x] Having localized URL's for both static pages and Eloquent Models with the translated slugs
-- [ ] Updating the slug of a page on the fly when switching language
+- [x] Updating the slug of a page on the fly when switching language
 
