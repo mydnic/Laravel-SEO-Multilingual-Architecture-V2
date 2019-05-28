@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "80540b6d7e13991a253fd597cb3eb756",
+    "content-hash": "f7846492db164d3b197f5e603001beed",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -3832,16 +3832,16 @@
         },
         {
             "name": "laravel/telescope",
-            "version": "v0.1.6",
+            "version": "v1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/telescope.git",
-                "reference": "e3dbda59367969222603a2a20f0ee3aabe7bcdce"
+                "reference": "c74326c6dbf6b722c2d35e43e324b79e51a0dbc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/telescope/zipball/e3dbda59367969222603a2a20f0ee3aabe7bcdce",
-                "reference": "e3dbda59367969222603a2a20f0ee3aabe7bcdce",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/c74326c6dbf6b722c2d35e43e324b79e51a0dbc0",
+                "reference": "c74326c6dbf6b722c2d35e43e324b79e51a0dbc0",
                 "shasum": ""
             },
             "require": {
@@ -3891,7 +3891,7 @@
                 "laravel",
                 "monitoring"
             ],
-            "time": "2018-11-02T10:45:19+00:00"
+            "time": "2019-03-05T13:21:07+00:00"
         },
         {
             "name": "mockery/mockery",
