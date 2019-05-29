@@ -21,7 +21,7 @@
         "fzaninotto/faker": "^1.4",
         "laravel/telescope": "^1.2",
         "mockery/mockery": "^1.0",
-        "nunomaduro/collision": "^2.0",
+        "nunomaduro/collision": "^3.0",
         "phpunit/phpunit": "^8.1"
     },
     "autoload": {
