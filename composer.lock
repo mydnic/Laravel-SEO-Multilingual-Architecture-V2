@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b697fb64f3b779306b601663821c475c",
+    "content-hash": "3fddc7f8dfe9c818d06d1f8ad7ccfc1f",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -2181,26 +2181,26 @@
         },
         {
             "name": "spatie/laravel-translatable",
-            "version": "3.0.1",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-translatable.git",
-                "reference": "e13f09e329c406915258d211e70384be121e82b8"
+                "reference": "35b4aa7f41497da6fff8fd64c2f517a2302e903d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-translatable/zipball/e13f09e329c406915258d211e70384be121e82b8",
-                "reference": "e13f09e329c406915258d211e70384be121e82b8",
+                "url": "https://api.github.com/repos/spatie/laravel-translatable/zipball/35b4aa7f41497da6fff8fd64c2f517a2302e903d",
+                "reference": "35b4aa7f41497da6fff8fd64c2f517a2302e903d",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "~5.5.0|~5.6.0|~5.7.0",
+                "laravel/framework": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
                 "php": "^7.1"
             },
             "require-dev": {
                 "mockery/mockery": "^1.0",
-                "orchestra/testbench": "~3.5.0|~3.6.0|~3.7.0",
-                "phpunit/phpunit": "^7.4"
+                "orchestra/testbench": "~3.5.0|~3.6.0|~3.7.0|~3.8.0",
+                "phpunit/phpunit": "^7.4|^8.0"
             },
             "type": "library",
             "extra": {
@@ -2249,7 +2249,7 @@
                 "spatie",
                 "translate"
             ],
-            "time": "2018-10-17T22:44:14+00:00"
+            "time": "2019-02-27T12:52:41+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
