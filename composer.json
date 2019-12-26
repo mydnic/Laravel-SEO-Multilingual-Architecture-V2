@@ -17,7 +17,7 @@
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
-        "filp/whoops": "^2.5",
+        "filp/whoops": "^2.6",
         "fzaninotto/faker": "^1.9",
         "laravel/telescope": "^1.2",
         "mockery/mockery": "^1.3",
